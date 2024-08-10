@@ -26,7 +26,7 @@ class ApiVariables {
   }
 
   Uri _customerUri({required String path, Map<String, String>? params}) =>
-      _mainUri(path: 'customer/$path', queryParameters: params);
+      _mainUri(path: 'worker/$path', queryParameters: params);
 
   Uri login() => _customerUri(path: 'login');
   Uri register() => _customerUri(path: 'signup');

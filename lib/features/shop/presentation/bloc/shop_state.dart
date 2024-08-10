@@ -1,9 +1,20 @@
 part of 'shop_bloc.dart';
 
-abstract class ShopState extends Equatable {
-  const ShopState();  
+class ShopState {
+  final CubitStatus status;
+  final List<Shop> shops;
+  ShopState({
+    this.status = CubitStatus.initial,
+    this.shops = const [],
+  });
 
-  @override
-  List<Object> get props => [];
+  ShopState copyWith({
+    CubitStatus? status,
+    List<Shop>? shops,
+  }) {
+    return ShopState(
+      status: status ?? this.status,
+      shops: shops ?? this.shops,
+    );
+  }
 }
-class ShopInitial extends ShopState {}

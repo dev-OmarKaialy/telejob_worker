@@ -1,9 +1,22 @@
 part of 'categories_bloc.dart';
 
-abstract class CategoriesState extends Equatable {
-  const CategoriesState();  
+enum CubitStatus { loading, initial, success, failed }
 
-  @override
-  List<Object> get props => [];
+class CategoriesState {
+  final CubitStatus status;
+  final List<JobCategory> model;
+  CategoriesState({
+    this.status = CubitStatus.initial,
+    this.model = const [],
+  });
+
+  CategoriesState copyWith({
+    CubitStatus? status,
+    List<JobCategory>? model,
+  }) {
+    return CategoriesState(
+      status: status ?? this.status,
+      model: model ?? this.model,
+    );
+  }
 }
-class CategoriesInitial extends CategoriesState {}

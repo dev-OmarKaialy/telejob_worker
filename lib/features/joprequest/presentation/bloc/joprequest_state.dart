@@ -1,9 +1,20 @@
 part of 'joprequest_bloc.dart';
 
-abstract class JoprequestState extends Equatable {
-  const JoprequestState();  
+class JoprequestState {
+  final CubitStatus status;
+  final List<Request> requests;
+  JoprequestState({
+    this.status = CubitStatus.initial,
+    this.requests = const [],
+  });
 
-  @override
-  List<Object> get props => [];
+  JoprequestState copyWith({
+    CubitStatus? status,
+    List<Request>? requests,
+  }) {
+    return JoprequestState(
+      status: status ?? this.status,
+      requests: requests ?? this.requests,
+    );
+  }
 }
-class JoprequestInitial extends JoprequestState {}

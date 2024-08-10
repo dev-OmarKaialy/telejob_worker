@@ -1,9 +1,20 @@
 part of 'profile_bloc.dart';
 
-abstract class ProfileState extends Equatable {
-  const ProfileState();  
+class ProfileState {
+  final CubitStatus status;
+  final ProfileModel? profile;
+  ProfileState({
+    this.status = CubitStatus.initial,
+    this.profile,
+  });
 
-  @override
-  List<Object> get props => [];
+  ProfileState copyWith({
+    CubitStatus? status,
+    ProfileModel? profile,
+  }) {
+    return ProfileState(
+      status: status ?? this.status,
+      profile: profile ?? this.profile,
+    );
+  }
 }
-class ProfileInitial extends ProfileState {}

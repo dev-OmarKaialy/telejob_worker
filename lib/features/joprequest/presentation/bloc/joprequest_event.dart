@@ -6,3 +6,5 @@ abstract class JoprequestEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class GetJobRequestsEvent extends JoprequestEvent {}

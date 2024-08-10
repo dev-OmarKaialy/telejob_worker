@@ -1,9 +1,20 @@
 part of 'shopcategory_bloc.dart';
 
-abstract class ShopcategoryState extends Equatable {
-  const ShopcategoryState();  
+class ShopcategoryState {
+  final CubitStatus status;
+  final List<ShopCategory> shopCategories;
+  ShopcategoryState({
+    this.status = CubitStatus.initial,
+    this.shopCategories = const [],
+  });
 
-  @override
-  List<Object> get props => [];
+  ShopcategoryState copyWith({
+    CubitStatus? status,
+    List<ShopCategory>? shopCategories,
+  }) {
+    return ShopcategoryState(
+      status: status ?? this.status,
+      shopCategories: shopCategories ?? this.shopCategories,
+    );
+  }
 }
-class ShopcategoryInitial extends ShopcategoryState {}
