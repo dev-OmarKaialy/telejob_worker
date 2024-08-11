@@ -7,6 +7,7 @@ import 'package:worker/features/categories/presentation/bloc/categories_bloc.dar
 import 'package:worker/features/joprequest/presentation/bloc/joprequest_bloc.dart';
 import 'package:worker/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:worker/features/shop/presentation/bloc/shop_bloc.dart';
+import 'package:worker/features/shopcategory/presentation/bloc/shopcategory_bloc.dart';
 
 import 'core/services/shared_preferences_service.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
@@ -27,6 +28,9 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => ShopBloc(),
+      ),
+      BlocProvider(
+        create: (context) => ShopcategoryBloc(),
       ),
       BlocProvider(
         create: (context) => JoprequestBloc(),

@@ -44,6 +44,7 @@ class ApiVariables {
   Uri singleRequests(String id) => _customerUri(path: 'request/$id');
   Uri jobCategories() => _mainUri(path: 'jobCategories');
   Uri profile() => _customerUri(path: 'profile');
-  Uri shopCategories() => _customerUri(path: 'shopCategories');
+  Uri shopCategories() => _mainUri(path: 'shopCategories');
   Uri shops() => _customerUri(path: 'shops');
+  Uri shopProducts(String id) => _customerUri(path: 'shopProducts/$id');
 }

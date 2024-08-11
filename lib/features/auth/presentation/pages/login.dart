@@ -10,7 +10,8 @@ import 'package:worker/core/utils/toaster.dart';
 import 'package:worker/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:worker/features/auth/presentation/pages/register.dart';
 import 'package:worker/features/categories/presentation/bloc/categories_bloc.dart';
-import 'package:worker/features/joprequest/presentation/pages/jobs_reqeusts.dart';
+
+import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -34,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state.status == CubitStatus.success) {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) {
-              return const JobsReqeusts();
+              return const HomeScreen();
             }));
           }
         }

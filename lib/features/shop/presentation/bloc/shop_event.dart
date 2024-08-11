@@ -8,3 +8,9 @@ abstract class ShopEvent extends Equatable {
 }
 
 class GetShopsEvent extends ShopEvent {}
+
+class GetShopProductssEvent extends ShopEvent {
+  final String id;
+
+  const GetShopProductssEvent({required this.id});
+}

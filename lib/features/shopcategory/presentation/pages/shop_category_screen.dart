@@ -13,6 +13,12 @@ class ShopCategoryScreen extends StatefulWidget {
 
 class _ShopCategoryScreenState extends State<ShopCategoryScreen> {
   @override
+  void initState() {
+    super.initState();
+    context.read<ShopcategoryBloc>().add(GetShopCategoryEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -25,6 +31,7 @@ class _ShopCategoryScreenState extends State<ShopCategoryScreen> {
             CubitStatus.success => GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3),
+                itemCount: state.shopCategories.length,
                 itemBuilder: (context, index) {
                   return Card(
                     child: Center(
