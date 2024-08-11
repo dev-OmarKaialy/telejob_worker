@@ -8,6 +8,7 @@ class ApiVariables {
   /////////////
   final _scheme = 'https';
   final _host = 'telejob.onrender.com';
+  final imageUrl = 'https://telejob.onrender.com/';
   // final _port = 5000;
 
   Uri _mainUri({

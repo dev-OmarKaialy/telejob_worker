@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:worker/core/unified_api/api_variables.dart';
 import 'package:worker/features/categories/presentation/bloc/categories_bloc.dart';
 import 'package:worker/features/shop/presentation/bloc/shop_bloc.dart';
 
@@ -12,6 +13,12 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ShopBloc>().add(GetShopsEvent());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +39,7 @@ class _ShopScreenState extends State<ShopScreen> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Image.network(
-                    state.shops[index].photoUrl,
+                    ApiVariables().imageUrl + state.shops[index].photoUrl,
                     fit: BoxFit.cover,
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:worker/core/utils/toaster.dart';
 import 'package:worker/features/categories/presentation/bloc/categories_bloc.dart';
 
 import '../../data/models/requestsmodel.dart';
@@ -20,6 +21,16 @@ class JoprequestBloc extends Bloc<JoprequestEvent, JoprequestState> {
           state.copyWith(status: CubitStatus.success, requests: right.requests),
         );
       });
+    });
+    on<UpdateJobRequestsEvent>((event, emit) async {
+      Toaster.showLoading();
+      final result = await Requestsrepo().toggle(event.id, event.status);
+      result.fold((left) {
+        Toaster.showToast(left.message);
+      }, (right) {
+        add(GetJobRequestsEvent());
+      });
+      Toaster.closeLoading();
     });
   }
 }

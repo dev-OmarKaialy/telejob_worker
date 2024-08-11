@@ -10,4 +10,10 @@ class Requestsrepo with HandlingExceptionManager {
       return Right(await Requestsdatasource().getreqests());
     });
   }
+
+  Future<Either<Failure, void>> toggle(String id, bool status) async {
+    return wrapHandling(tryCall: () async {
+      return Right(await Requestsdatasource().toggleRequest(id, status));
+    });
+  }
 }
